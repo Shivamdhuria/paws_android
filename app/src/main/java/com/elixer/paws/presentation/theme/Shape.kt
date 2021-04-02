@@ -1,4 +1,4 @@
-package com.elixer.paws.ui.theme
+package com.elixer.paws.presentation.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
