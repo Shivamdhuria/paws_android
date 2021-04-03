@@ -1,5 +1,8 @@
 package com.elixer.paws.di
 
+import com.elixer.paws.interactors.dog_list.GetDogs
+import com.elixer.paws.network.RetrofitService
+import com.elixer.paws.network.model.DogDtoMapper
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -10,21 +13,10 @@ import dagger.hilt.android.scopes.ViewModelScoped
 @InstallIn(ViewModelComponent::class)
 object InteractorsModule {
 
-//  @ViewModelScoped
-//  @Provides
-//  fun provideSearchRecipe(
-//    recipeService: RecipeService,
-//    recipeDao: RecipeDao,
-//    recipeEntityMapper: RecipeEntityMapper,
-//    recipeDtoMapper: RecipeDtoMapper,
-//  ): SearchRecipes {
-//    return SearchRecipes(
-//      recipeService = recipeService,
-//      recipeDao = recipeDao,
-//      entityMapper = recipeEntityMapper,
-//      dtoMapper = recipeDtoMapper,
-//    )
-//  }
+    @ViewModelScoped
+    @Provides
+    fun provideGetDogs(retrofitService: RetrofitService, dtoMapper: DogDtoMapper) =
+        GetDogs(retrofitService, dtoMapper)
 //
 //  @ViewModelScoped
 //  @Provides
