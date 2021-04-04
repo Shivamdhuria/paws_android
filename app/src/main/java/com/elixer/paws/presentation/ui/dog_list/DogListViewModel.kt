@@ -42,8 +42,41 @@ class DogListViewModel @Inject constructor(
         }
     }
 
+    internal  fun loadMore() {
+        // prevent duplicate event due to recompose happening to quickly
+        loading.value = true
 
+
+        viewModelScope.launch {
+            getDogs.execute().onEach { dataState ->
+                loading.value = dataState.loading
+
+                dataState.data?.let { list ->
+                    appendDogs(list)
+                }
+
+                dataState.error?.let { error ->
+                    Log.e("TAG", "newSearch: ${error}")
+                }
+
+            }.launchIn(viewModelScope)
+        }
+    }
+
+    /**
+     * Append new recipes to the current list of recipes
+     */
+    private fun appendDogs(recipes: List<Dog>) {
+        val current = ArrayList(this.recipes.value)
+        current.addAll(recipes)
+        this.recipes.value = current
+    }
 }
+
+
+
+
+
 
 
 
