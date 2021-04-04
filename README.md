@@ -1,7 +1,4 @@
-<p align="center">
-##PAWS
-</p>
-
+# Paws
 <p align="center">
 This Project is still under development.
   </p>
