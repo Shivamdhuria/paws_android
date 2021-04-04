@@ -13,7 +13,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.elixer.paws.domain.model.Dog
 import com.elixer.paws.util.DEFAULT_DOG_IMAGE
@@ -42,6 +41,7 @@ fun DogDetailScreen(dog: Dog, viewModel: DogDetailViewModel) {
                 .padding(20.dp)
                 .fillMaxWidth()
                 .fillMaxHeight(),
+
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -51,11 +51,9 @@ fun DogDetailScreen(dog: Dog, viewModel: DogDetailViewModel) {
                 text = dog.breed,
                 color = Color.White,
                 style = MaterialTheme.typography.h3,
-                maxLines = 1,
                 modifier = Modifier
                     .fillMaxWidth()
                     .align(Alignment.Start),
-                overflow = TextOverflow.Ellipsis,
                 fontWeight = FontWeight.Bold
             )
 
