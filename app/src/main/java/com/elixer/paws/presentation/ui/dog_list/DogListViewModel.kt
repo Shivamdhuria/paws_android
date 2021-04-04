@@ -21,16 +21,17 @@ class DogListViewModel @Inject constructor(
 
     val recipes: MutableState<List<Dog>> = mutableStateOf(ArrayList())
     val loading = mutableStateOf(false)
+    val allDogs = mutableListOf<Dog>()
 
     init {
 
         viewModelScope.launch {
-            getDogs.execute().onEach { dataState
-                ->
+            getDogs.execute().onEach { dataState ->
                 loading.value = dataState.loading
 
                 dataState.data?.let { list ->
-                    recipes.value = list
+                    allDogs.addAll(list)
+                    recipes.value = allDogs
                 }
 
                 dataState.error?.let { error ->
