@@ -1,17 +1,12 @@
 # Paws
-<p align="center">
-This Project is still under development.
-  </p>
+
+### This Project is still under development.
+
 
 <p align="center">
 An Android Application written purely in Kotlin utilizing all the latest tech in Android. <br> The project uses Material Design guidelines,  MVVM architecture, Hilt for Dependency Injection and uses Room for an offline- first approach.
   </p>
-
-<p align="center">
-<!-- <img src="./previews/introCompressed.jpg" width="700"> -->
-</p>
-
-
+  
 ## Tech Stack
 <img src="/previews/transition.gif" align="right" width="20%"/>
 
