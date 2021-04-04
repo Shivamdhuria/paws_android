@@ -15,31 +15,13 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-class DogListViewModel @Inject constructor(
-    private val getDogs: GetDogs
-) : ViewModel() {
+class DogListViewModel @Inject constructor(private val getDogs: GetDogs) : ViewModel() {
 
     val recipes: MutableState<List<Dog>> = mutableStateOf(ArrayList())
     val loading = mutableStateOf(false)
-    val allDogs = mutableListOf<Dog>()
 
     init {
-
-        viewModelScope.launch {
-            getDogs.execute().onEach { dataState ->
-                loading.value = dataState.loading
-
-                dataState.data?.let { list ->
-                    allDogs.addAll(list)
-                    recipes.value = allDogs
-                }
-
-                dataState.error?.let { error ->
-                    Log.e("TAG", "newSearch: ${error}")
-                }
-
-            }.launchIn(viewModelScope)
-        }
+        loadMore()
     }
 
     internal  fun loadMore() {

@@ -21,7 +21,6 @@ import com.elixer.paws.util.loadPicture
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 
-
 @ExperimentalCoroutinesApi
 @Composable
 fun DogItemCard(dog: Dog, onClick: () -> Unit) {
@@ -34,7 +33,7 @@ fun DogItemCard(dog: Dog, onClick: () -> Unit) {
                 .clickable(onClick = onClick),
             elevation = 6.dp,
 
-        ) {
+            ) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -59,20 +58,21 @@ fun DogItemCard(dog: Dog, onClick: () -> Unit) {
                     style = MaterialTheme.typography.h5,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.padding(horizontal = 3.dp)
                 )
 
-                Text(
-                    text = dog.rating,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .wrapContentWidth(Alignment.CenterHorizontally)
-                        .align(Alignment.CenterHorizontally),
-                    style = MaterialTheme.typography.body1,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis
-                )
-            }
+            Text(
+                text = dog.rating + " ⭐️",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .wrapContentWidth(Alignment.CenterHorizontally)
+                    .align(Alignment.CenterHorizontally),
+                style = MaterialTheme.typography.body1,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
+            )
         }
     }
+}
 }

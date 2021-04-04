@@ -58,7 +58,7 @@ fun DogDetailScreen(dog: Dog, viewModel: DogDetailViewModel) {
             )
 
             Text(
-                text = dog.rating,
+                text = dog.rating +" ⭐️",
                 color = Color.White,
                 modifier = Modifier
                     .fillMaxWidth()
